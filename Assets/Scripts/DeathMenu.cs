@@ -35,6 +35,6 @@ public class DeathMenu : MonoBehaviour
 
     public void ToMenu()
     {
-        //SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu");
     }
 }

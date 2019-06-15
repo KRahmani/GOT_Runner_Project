@@ -19,11 +19,14 @@ public class PlayerMotor : MonoBehaviour
 
     private bool isDead = false;
 
+    private float startTime;
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        startTime = Time.time;
         
     }
 
@@ -32,7 +35,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (isDead)
             return;
-        if(Time.time < animationDuration)
+        if(Time.time - startTime < animationDuration)
         {
             controller.Move(Vector3.forward * speed * Time.deltaTime);
             return;
