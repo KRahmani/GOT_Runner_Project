@@ -6,7 +6,7 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 moveVector;
-    private float speed = 8.0f;
+    private float speed = 7.0f;
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
 
@@ -66,6 +66,10 @@ public class PlayerMotor : MonoBehaviour
 
         controller.Move(moveVector * Time.deltaTime);
     }
-
+    
+    public void SetSpeed(float modifier)
+    {
+        speed =7.0f+modifier;
+    }
 
 }

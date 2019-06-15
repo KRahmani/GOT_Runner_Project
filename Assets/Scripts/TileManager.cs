@@ -8,19 +8,23 @@ public class TileManager : MonoBehaviour
 {
     public GameObject[] tilePrefabs;
     private Transform playerTransform;
+
     private float spawnZ = -10.0f; // la nouvelle position Z du nouveau bridge à ajouter
+    //private float spawnZ = 0f; // la nouvelle position Z du nouveau bridge à ajouter
     private float tileLength;
-    private float safeZone = 50.0f;
-    private int nbtilesOnScreen = 15;
-    //private int prefIndex;
+    //private float safeZone = 100.0f;
+    private int nbtilesOnScreen = 7;
 
     private int lastPrefabIndex = 0;
     private List<GameObject> activeTiles;
+    private List<float> bridgePositions;
 
     // Start is called before the first frame update
     void Start()
     {
         activeTiles = new List<GameObject>();
+        bridgePositions = new List<float>();
+
         playerTransform = GameObject.FindGameObjectWithTag ("Player").transform;
         for(int i = 0 ; i < nbtilesOnScreen; i++)
         {
@@ -36,7 +40,10 @@ public class TileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerTransform.position.z - safeZone > (spawnZ - nbtilesOnScreen * tileLength))
+        // if (playerTransform.position.z - safeZone > (spawnZ - nbtilesOnScreen * tileLength))
+      
+        //if (playerTransform.position.z > (spawnZ - nbtilesOnScreen * tileLength))
+        if(playerTransform.position.z > bridgePositions[0])
         {
             SpawnTile();
             deleteTiles();
@@ -58,6 +65,7 @@ public class TileManager : MonoBehaviour
         {
             go = Instantiate(tilePrefabs[prefabIndex]) as GameObject;
             tileLength = PrefabLength(prefabIndex);
+
         }
         
         go.transform.SetParent(transform);
@@ -66,6 +74,7 @@ public class TileManager : MonoBehaviour
         // MAJ spawnZ
         spawnZ += tileLength;
         activeTiles.Add(go);
+        bridgePositions.Add(go.transform.position.z + tileLength);
 
     }
 
@@ -75,6 +84,8 @@ public class TileManager : MonoBehaviour
         //détruire le premier bridge de la liste
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
+
+        bridgePositions.RemoveAt(0);
     }
 
     private int RandomPrefabIndex()
@@ -93,9 +104,9 @@ public class TileManager : MonoBehaviour
         return randomIndex;
     }
 
-     private int PrefabLength(int prefabIndex)
+     private float PrefabLength(int prefabIndex)
      {
-         int prefabLength  = 0; 
+         float prefabLength  = 0; 
          switch(prefabIndex)
          {
              case 0:
