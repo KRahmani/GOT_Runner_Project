@@ -15,6 +15,8 @@ public class Score : MonoBehaviour
 
     public Text scoreText;
 
+    public DeathMenu deathMenu;
+
 
     // Update is called once per frame
     void Update()
@@ -38,5 +40,6 @@ public class Score : MonoBehaviour
     public void OnDeath()
     {
         isDead = true;
+        deathMenu.ToggleEndMenu (score);
     }
 }

@@ -48,6 +48,8 @@ public class PlayerMotor : MonoBehaviour
         else
         {
             verticalVelocity -= gravity * Time.deltaTime;
+            
+
         }
 
         //left and right
@@ -55,6 +57,7 @@ public class PlayerMotor : MonoBehaviour
 
         //up and down
         moveVector.y = verticalVelocity;
+
         if (Input.GetKeyUp(KeyCode.DownArrow))
         {
             anim.SetTrigger("Down");
@@ -62,7 +65,6 @@ public class PlayerMotor : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             anim.SetTrigger("Jump");
-            //moveVector.y += jump;
         }
 
 
@@ -70,6 +72,10 @@ public class PlayerMotor : MonoBehaviour
         moveVector.z = speed;
 
         controller.Move(moveVector * Time.deltaTime);
+        if (transform.position.y < -1.5f)
+        {
+            Death();
+        }
     }
     
     public void SetSpeed(float modifier)
