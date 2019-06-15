@@ -9,9 +9,11 @@ public class TileManager : MonoBehaviour
     public GameObject[] tilePrefabs;
     private Transform playerTransform;
 
-    private float spawnZ = -10.0f; // la nouvelle position Z du nouveau bridge à ajouter
-    //private float spawnZ = 0f; // la nouvelle position Z du nouveau bridge à ajouter
+    //private float spawnZ = -10.0f; // la nouvelle position Z du nouveau bridge à ajouter
+    private float spawnZ = 0.0f; // la nouvelle position Z du nouveau bridge à ajouter
     private float tileLength;
+
+    private float distancePlayerBridge1=3.0f;
     //private float safeZone = 100.0f;
     private int nbtilesOnScreen = 7;
 
@@ -40,10 +42,8 @@ public class TileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (playerTransform.position.z - safeZone > (spawnZ - nbtilesOnScreen * tileLength))
-      
-        //if (playerTransform.position.z > (spawnZ - nbtilesOnScreen * tileLength))
-        if(playerTransform.position.z > bridgePositions[0])
+
+        if(playerTransform.position.z > bridgePositions[0] + distancePlayerBridge1)
         {
             SpawnTile();
             deleteTiles();
