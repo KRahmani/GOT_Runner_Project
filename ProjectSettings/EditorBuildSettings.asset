@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 3dd3ecd136d43664ab574dae9e174821
+  - enabled: 1
+    path: Assets/Scenes/Daeny-player.unity
+    guid: 0622832a6ba18d2469113c9c7db213c5
+  - enabled: 1
+    path: Assets/Scenes/Jon-player.unity
+    guid: 910c5ced201d0cd4ca5eb9dcdeeb9443
   m_configObjects: {}
