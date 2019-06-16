@@ -21,4 +21,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+
+    public void ToJon()
+    {
+        SceneManager.LoadScene("Jon-player");
+    }
+
 }
