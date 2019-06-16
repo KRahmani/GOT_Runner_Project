@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -21,13 +22,15 @@ public class PlayerMotor : MonoBehaviour
 
     private float startTime;
 
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         startTime = Time.time;
-        
+
+
     }
 
     // Update is called once per frame
@@ -61,11 +64,11 @@ public class PlayerMotor : MonoBehaviour
         //up and down
         moveVector.y = verticalVelocity;
 
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             anim.SetTrigger("Down");
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetTrigger("Jump");
         }

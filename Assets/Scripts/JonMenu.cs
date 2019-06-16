@@ -22,4 +22,11 @@ public class JonMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Daeny-player");
     }
+
+    public void selectJonPlayer()
+    {
+        GameObject.Find("MainMenu").GetComponent<MainMenu>().playerChoise=1;
+
+        SceneManager.LoadScene("Menu");
+    }
 }

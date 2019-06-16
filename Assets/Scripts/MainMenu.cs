@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public int playerChoise;
+    private static bool created = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,16 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Awake()
+    {
+        if (!created)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            created = true;
+            Debug.Log("Awake: " + this.gameObject);
+        }
     }
 
     public void ToGame()

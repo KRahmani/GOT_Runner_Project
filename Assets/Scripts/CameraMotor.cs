@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraMotor : MonoBehaviour
 {
+    public GameObject playerToFollow;
+
     private Transform lookAt;
     private Vector3 distanceFromPlayer;
     private Vector3 moveVector;
@@ -15,7 +17,8 @@ public class CameraMotor : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        lookAt = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //lookAt = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        lookAt = playerToFollow.GetComponent<Transform>();
         distanceFromPlayer = transform.position - lookAt.position;
 
     }

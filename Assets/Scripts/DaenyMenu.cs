@@ -21,42 +21,9 @@ public class DaenyMenu : MonoBehaviour
 
     public void selectDaenyPlayer()
     {
-        
+        GameObject.Find("MainMenu").GetComponent<MainMenu>().playerChoise = 0;
 
-
-        Scene game=SceneManager.GetSceneByName ("Game");
-
-        Scene active =SceneManager.GetActiveScene();
-
-        //GameObject[] objects = game.GetRootGameObjects();
-
-        Scene[] scenes = SceneManager.GetAllScenes();
-
-        foreach(Scene s in scenes)
-        {
-            s.GetRootGameObjects();
-        }
-
-        /*
-        foreach (GameObject g in objects)
-        {
-            if (g.name == "Player")
-            {
-                g.SetActive(true);
-            }
-            if (g.name == "Player1")
-            {
-                g.SetActive(false);
-            }
-        }
-        */
-
-        //daenyPlayer = GameObject.Find("Player");
-        //jonPlayer = GameObject.Find("Player1");
-        daenyPlayer.SetActive(true);
-        jonPlayer.SetActive(false);
-
-        SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Menu");
     }
 
 }
