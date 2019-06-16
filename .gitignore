@@ -9,3 +9,9 @@ Assembly-CSharp-firstpass.csproj
 Assembly-CSharp.csproj
 temp
 *.csproj
+obj/
+obj/Debug/Assembly-CSharp-Editor.csprojAssemblyReference.cache
+obj/Debug/Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
+*.cache
+obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
