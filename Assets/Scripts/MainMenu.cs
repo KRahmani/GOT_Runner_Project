@@ -39,4 +39,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Jon-player");
     }
 
+    public void ToCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
 }

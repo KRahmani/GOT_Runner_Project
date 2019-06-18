@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jon-player.unity
     guid: 910c5ced201d0cd4ca5eb9dcdeeb9443
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 70fc169afde15534d99716fef98314bf
   m_configObjects: {}
